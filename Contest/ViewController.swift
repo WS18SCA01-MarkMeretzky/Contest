@@ -18,14 +18,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func submitButtonPressed(_ sender: UIButton) {
-        if let text: String = textField.text, !text.isEmpty {
+        if let text: String = textField.text,
+            !text.isEmpty {
             performSegue(withIdentifier: "success", sender: sender);
         } else {
             UIView.animate(
                 withDuration: 0.2,
                 animations: {
                     self.textField.transform = CGAffineTransform(translationX: 20, y: 0);
-                }) {(_) in
+                }) {_ in
                     self.textField.transform = .identity;
                 }
         }
